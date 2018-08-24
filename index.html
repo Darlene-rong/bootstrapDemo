@@ -19,21 +19,21 @@
 <body>
 <!-- 开始菜单栏(固定顶部) -->
     <div>
-        <nav class="navbar navbar-default navbar-inverse navbar-fixed-top"  style="color:#fff;">
+        <nav class="navbar  navbar-fixed-top navbar-inverse " id="mainnavbar">
             <!-- 导航栏采用的是 container-fluid -->
-            <div class="container-fluid"> 
-                <div class="navbar-header">
+            <div class="container"> 
+                <div class="navbar-header  navbar-left">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbody">
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
                     <a class="navbar-brand">
-                        <span class="glyphicon glyphicon-grain" ></span>
+                        <span class="glyphicon glyphicon-grain navb-logo" ></span>
                     </a>
                 </div>
-                <div class="collapse navbar-collapse" >
-                    <ul class="nav navbar-nav">
+                <div class="coll-nav collapse navbar-collapse" id="navbody">
+                    <ul class="nav navbar-nav " id="list1">
                         <li><a href="#">MacBB</a></li>
                         <li><a href="#">SomeKK</a></li>
                         <li class="dropdown">
@@ -50,18 +50,55 @@
                         </li>
                         <li><a href="#">JakcinnYY</a></li>
                         <li><a href="#">MahgHH</a></li>
+                        <li><a href="javascript:;">
+                                <span class="glyphicon glyphicon-search " id="searchshow"></span>
+                            </a>
+                        </li>
                     </ul>
-                    <form class="navbar-form navbar-right">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search" name="" id="">
-                        </div>
-                        <button type="submit" class="btn btn-info"> submit</button>
-                    </form> 
+                </div>
+            </div>
+        </nav>
+        <nav class="navbar  navbar-fixed-top navbar-inverse " id="searchnavbar">
+            <!-- 导航栏采用的是 container-fluid -->
+            <div class="container"> 
+                <div class="navbar-header  navbar-left">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbody">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand">
+                        <span class="glyphicon glyphicon-grain navb-logo" ></span>
+                    </a>
+                </div>
+                <div class="coll-nav collapse navbar-collapse search-main" >
+                    <div id="searchcol">
+                        <a href="#title"  data-toggle="collapse" data-parent="#searchcol">
+                            <span class="glyphicon glyphicon-remove search-input-left" id="serchshow"></span>
+                            <input type="text" class=" search-input" placeholder="请输入搜索内容" id="searchinput">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </a>
+                    </div> 
                 </div>
             </div>
         </nav>
     </div>
 <!-- 开始菜单栏结束 -->
+<!-- 蒙层 -->
+    <div class="bg" id="bgcover">
+            <div id="title" class="panel-collapse collapse serch-list">
+                <ul class="list-group">
+                    <li class="list-group-item">热门搜索</li>
+                    <li class="list-group-item"><a href="javascript:;">Cras justo odio</a></li>
+                    <li class="list-group-item"><a href="javascript:;">Dapibus ac facilisis in</a></li>
+                    <li class="list-group-item"><a href="javascript:;">Morbi leo risus</a></li>
+                    <li class="list-group-item"><a href="javascript:;">Porta ac consectetur ac</a></li>
+                    <li class="list-group-item"><a href="javascript:;">Vestibulum at eros</a></li>
+                </ul>
+
+            </div>
+    </div>
+<!-- 蒙层结束 -->
 
 <!-- 轮播图开始 -->
     <div id="carousel-example-generic" class="carousel slide" data- data-ride="carousel" data-interval="2000"  data-wrap="true" data-keyboard = "true">
@@ -229,10 +266,53 @@
             </div>
         </div>
     </div>
-<!--  -->
+<!--图片结束  -->
+
+<!-- 底部开始 -->
+    <!-- <div class="container footer-main">
+
+    </div> -->
+<!-- 底部结束 -->
+
+<!-- 底部开始 -->
+    <div class="bottom-main">
+        <span class="bottom-content">
+            <p class="container bottom-main-content">
+                <a href="javascript:;">友情链接</a>
+                <a href="javascript:;">广告合作</a>
+                <a href="javascript:;">联系我们</a>
+                <a href="javascript:;">关于我们</a>
+                <a href="javascript:;">@UII</a>
+            </p>  
+            <p class="container bottom-main-content">
+                <a href="javascript:;">Copyright &copy; 2018 somega UIREN.NET </a>
+                <a href="javascript:;">站长统计</a>
+            </p>           
+        </span>
+    </div>
+<!-- 底部结束 -->
 <script>
-   $(function () {
+    $(function () {
         $("[data-toggle='tooltip']").tooltip();
+    })
+    $("#searchnavbar").hide();
+    $("#bgcover").hide();
+    $("#searchshow").click(function() {
+        $("#searchshow").hide();
+        $("#bgcover").show();
+        $("#searchnavbar").fadeIn(800,function(){
+            $("#searchnavbar").show();
+        })   
+    })
+    $("#serchshow").click(function(){
+        $("#searchshow").show();
+        $("#searchnavbar").hide();
+        $("#bgcover").hide();
+    } )
+    $("bgcover").click(function(){
+        $("#searchshow").show();
+        $("#searchnavbar").hide();
+        $("#bgcover").hide();
     })
 </script>
 </body>
